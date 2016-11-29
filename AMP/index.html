@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html amp lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ampをやってみよう</title>
+	<link rel="canonical" href="http://example.ampproject.org/article-metadata.html" />
+	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+	<link rel="canonical" href="http://localhost:8809/main.html">
+	<script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "PracticePage",
+        "headline": "Open-source framework for publishing content",
+        "datePublished": "2016-11-15T10:22:41Z",
+        "image": [
+          "logo.jpg"
+        ]
+      }
+    </script>
+	<style amp-boilerplate>
+		body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}
+		@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+		@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+		@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+		@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+		@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}
+	</style>
+	<style amp-custom>
+		/* any custom style goes here */
+		body {background-color: white;}
+		amp-img {background-color: gray;border: 1px solid black;}
+		amp-img.grey-placeholder{ background-color:mediumpurple;}
+		getMap.gm{height:100%}
+	</style>
+
+	<noscript>
+		<style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style>
+	</noscript>
+	<script async src="https://cdn.ampproject.org/v0.js"></script>
+	<script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>
+	<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+</head>
+<body>
+<div id="wrap">
+	<h1>Welcome to the mobile web</h1>
+	<div id="slider">
+		<amp-carousel width=300 height=400 layout="responsive" type="slides" loop="auto" delay="500">
+			<amp-img src="https://www.ampproject.org/static/img/amp.jpg" alt="Welcome" height="400" width="800" alt="폰"></amp-img>
+			<amp-img src="https://www.ampproject.org/static/img/background.jpg" width="527" height="193" layout="responsive"
+					alt="폰"></amp-img>
+			<amp-img
+					src="http://cfile1.uf.tistory.com/image/19272E2F4C67E49AB98D32"
+					srcset="http://cfile1.uf.tistory.com/image/19272E2F4C67E49AB98D32 320w"
+					width="200"
+					height="200"
+					layout="responsive"
+					alt="보노보노">
+			</amp-img>
+
+			<amp-img
+					class="grey-placeholder"
+					src="https://placekitten.com/g/500/300"
+					srcset="http://placekitten.com/200/300 640w"
+					width="500"
+					height="300"
+					layout="responsive"
+					alt="고양이">
+			</amp-img>
+		</amp-carousel>
+	</div>
+
+	<div id="getMap">
+		<amp-iframe class="gm"
+				width="400"
+				height="400"
+				layout="responsive"
+				sandbox="allow-scripts allow-same-origin"
+				width="353"
+				height="197"
+				frameborder="0"
+				src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ2eUgeAK6j4ARbn5u_wAGqWA&key=AIzaSyCc-U91WfIHrSuWlEw68klZHS7LdepSAtU">
+		</amp-iframe>
+	</div>
+</div>
+
+</body>
+</html>

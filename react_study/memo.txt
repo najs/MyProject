@@ -1,0 +1,6 @@
+>>실행
+npm run dev-server
+
+
+>>locallStorage 삭제
+locallStorage.clear()

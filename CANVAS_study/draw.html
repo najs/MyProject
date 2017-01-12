@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Draw Canvas</title>
+</head>
+<body>
+<h1>캔버스에 직접 그리기</h1>
+
+<canvas id="canvas" width="400" height="400"></canvas>
+
+<script>
+	var canvas,
+			ctx;
+
+	window.onload = function(){
+		canvas = document.getElementById("canvas");
+		if(canvas == null || canvas.getContext == null) return;
+		ctx = canvas.getContext("2d");
+
+		draw();
+	};
+
+	function draw(){
+		drawRect();		//사각형그리기
+		drawLine(10, 10, 300, 150);   //직선그리기
+	}
+
+	function drawRect(){
+		ctx.strokeRect(20,0,350,200); //(시작x, 시작y, 가로길이, 세로길이)
+		ctx.fillRect(120, 10, 200, 100);
+		ctx.clearRect(170, 40, 80, 40);
+	}
+
+	function drawLine(sx, sy, ex, ey){
+		ctx.beginPath();
+		ctx.moveTo(sx, sy);//(시작x, 시작y)
+		ctx.lineTo(ex, ey);// (가로길이, 세로길이)
+		ctx.stroke();
+	}
+
+</script>
+
+</body>
+</html>

@@ -32,10 +32,12 @@
 		ctx.clearRect(170, 40, 80, 40);
 	}
 
-	function drawLine(sx, sy, ex, ey){
+	function drawLine(){
 		ctx.beginPath();
-		ctx.moveTo(sx, sy);//(시작x, 시작y)
-		ctx.lineTo(ex, ey);// (가로길이, 세로길이)
+		ctx.moveTo(150, 10);
+		ctx.lineTo(250, 150);
+		ctx.lineTo(50,150);
+		ctx.closePath(); // 열린패스 닫는
 		ctx.stroke();
 	}
 

@@ -4,6 +4,7 @@ var fileInclude = require('gulp-file-include');
 var clean = require('gulp-clean');
 var imagemin = require('gulp-imagemin');
 var watch = require('gulp-watch');
+var sass = require('gulp-sass');
 /*var uglify = require('gulp-uglify');*/
 
 
@@ -29,6 +30,16 @@ gulp.task('js', function(){
 gulp.task('css', function () {
     return gulp.src(devPaths.css)
       .pipe(gulp.dest(buildSrc+'/css'));
+});
+
+gulp.task('sass',function(){
+   return gulp.src(devPaths.scss).
+		 pipe(sass.sync().on('error', sass.logError)).
+     pipe(gulp.dest(buildSrc+'/css'));
+});
+
+gulp.task('sass:watch', function () {
+	gulp.watch(devPaths.scss, ['sass']);
 });
 
 gulp.task('images', function(){
@@ -63,7 +74,6 @@ gulp.task('clean', function () {
 gulp.task('compile', ['js', 'css', 'html', 'images'], function(){});
 
 gulp.task('default', [
-	'clean',
   'js',
   'css',
   'html',

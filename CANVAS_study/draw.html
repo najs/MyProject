@@ -8,39 +8,51 @@
 <h1>캔버스에 직접 그리기</h1>
 
 <canvas id="canvas" width="400" height="400"></canvas>
+<canvas id="canvas2" width="500" height="500"></canvas>
 
 <script>
-	var canvas,
+	var canvas,canvas2,
 			ctx;
 
 	window.onload = function(){
 		canvas = document.getElementById("canvas");
+		canvas2 = document.getElementById("canvas2");
 		if(canvas == null || canvas.getContext == null) return;
 		ctx = canvas.getContext("2d");
+		ctx2 = canvas2.getContext("2d");
 
-		draw();
+		draw(ctx);
+
+		drawImg(ctx2);
 	};
 
-	function draw(){
-		drawRect();		//사각형그리기
-		drawLine(10, 10, 300, 150);   //직선그리기
+	function draw(ele){
+		drawRect(ele);		//사각형그리기
+		drawLine(ele);   //직선그리기
 	}
 
-	function drawRect(){
-		ctx.strokeRect(20,0,350,200); //(시작x, 시작y, 가로길이, 세로길이)
-		ctx.fillRect(120, 10, 200, 100);
-		ctx.clearRect(170, 40, 80, 40);
+	function drawRect(ele){
+		ele.strokeRect(20,0,350,200); //(시작x, 시작y, 가로길이, 세로길이)
+		ele.fillRect(120, 10, 200, 100);
+		ele.clearRect(170, 40, 80, 40);
 	}
 
-	function drawLine(){
-		ctx.beginPath();
-		ctx.moveTo(150, 10);
-		ctx.lineTo(250, 150);
-		ctx.lineTo(50,150);
-		ctx.closePath(); // 열린패스 닫는
-		ctx.stroke();
+	function drawLine(ele){
+		ele.beginPath();
+		ele.moveTo(150, 10);
+		ele.lineTo(250, 150);
+		ele.lineTo(50,150);
+		ele.closePath(); // 열린패스 닫는
+		ele.stroke();
 	}
 
+	function drawImg(ele){
+		var img = new Image();
+		img.src="poket4.png";
+		img.onload = function(){
+			ele.drawImage(img,100,100,100,150,0,0,100,150); //drawImage(img, x,y, w,h)
+		};
+	}
 </script>
 
 </body>

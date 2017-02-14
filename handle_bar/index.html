@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		table{padding:0;margin:0; text-align:center;}
+	</style>
+
+</head>
+<body>
+<!-- 핸들바 템플릿 -->
+<script id="partial-template" type="text/x-handlebars-template">
+	{{!-- #unless 헬퍼는 #if 의 정반대 기능을 한다. --}}
+	<h1>리스트
+		{{#unless users}}
+			<small>사용자 리스트가 없습니다.</small>
+		{{/unless}}
+	</h1>
+</script>
+
+<!-- 핸들바 템플릿 -->
+<script id="entry-template" type="text/x-handlebars-template">
+	{{!-- 조각 템플릿은 #> 를 사용해서 포함시킬 수 있다. --}}
+	{{#> commonHeader}}
+		partial template 로드 실패시 보여지는 내용
+	{{/commonHeader}}
+
+	<table>
+		<colgroup>
+			<col style="width:10%">
+			<col style="width:10%">
+			<col style="width:20%">
+			<col style="width:30%">
+			<col style="width:30%">
+		</colgroup>
+		<thead>
+			<th>이름</th>
+			<th>아이디</th>
+			<th>메일주소</th>
+			<th>취미</th>
+			<th>요소정보</th>
+		</thead>
+		<tbody>
+		{{!-- {{#each users}} 는 {{#users}} 로도 대체 가능하다 --}}
+		{{#each users}}
+			<tr>
+				<td>{{name}}</td>
+				<td>{{id}}</td>
+
+				{{!-- 사용자 정의 헬퍼인 email에 id를 인자로 넘긴다 --}}
+				<td><a href="mailto:{{email id}}">{{email id}}</a></td>
+
+				<td>{{hobbys}}</td>
+
+				{{!-- 요소의 순번은 @index 혹은 @key로 잡을 수 있는데,
+				array와 object 모두 잡을 수 있는 key가 더 나아보인다 --}}
+
+				{{#if @first}}
+					<td>첫 아이템 ({{@key}} 번째 요소)</td>
+				{{else if @last}}
+					<td>마지막 아이템 ({{@key}} 번째 요소)</td>
+				{{else}}
+					<td>중간 아이템 ({{@key}} 번째 요소)</td>
+				{{/if}}
+			</tr>
+		{{/each}}
+		</tbody>
+	</table>
+</script>
+
+<script src="node_modules/handlebars/dist/handlebars.js"></script>
+<script src="node_modules/jquery/dist/jquery.js"></script>
+<script src="handlebars_set.js"></script>
+</body>
+</html>

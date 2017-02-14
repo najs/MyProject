@@ -1,0 +1,16 @@
+{
+  "name": "handle_bar",
+  "version": "1.0.0",
+  "description": "handlebar_study",
+  "main": "handlebars_set.js",
+  "dependencies": {},
+  "devDependencies": {
+    "handlebars": "^4.0.6",
+    "jquery": "^3.1.1"
+  },
+  "scripts": {
+    "test": "'test ok'"
+  },
+  "author": "meme",
+  "license": "ISC"
+}

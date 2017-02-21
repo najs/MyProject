@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Curves</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="600" height="1000"></canvas>
+	<script>
+		var canvas = document.getElementById('myCanvas');
+		var context = canvas.getContext('2d');
+		var x = 400;
+		var y = 400;
+		var radius = 75;
+		var startAngle = 1.1 * Math.PI;
+		var endAngle = 2 * Math.PI;
+		var counterClockwise = false;
+
+		context.beginPath();
+		context.font = '40px Calibri';
+		context.fillStyle = 'blue';
+		context.fillText('곡선!', x-50, y);
+		context.arc(x, y, radius, startAngle, endAngle, counterClockwise);
+		context.lineWidth = 15;
+		context.strokeStyle = 'black';
+		context.stroke();
+
+		// set line width for all lines
+		context.lineWidth = 40;
+
+		// miter line join (left)
+		context.beginPath();
+		context.moveTo(99, 150);
+		context.lineTo(149, 50);
+		context.lineTo(199, 150);
+		context.strokeStyle = 'red';
+		context.lineJoin = 'miter';
+		context.stroke();
+
+		// round line join (middle)
+		context.beginPath();
+		context.moveTo(239, 150);
+		context.lineTo(289, 50);
+		context.lineTo(339, 150);
+		context.strokeStyle = 'orange';
+		context.lineJoin = 'round';
+		context.stroke();
+
+		// bevel line join (right)
+		context.beginPath();
+		context.moveTo(379, 150);
+		context.lineTo(429, 50);
+		context.lineTo(479, 150);
+		context.strokeStyle = 'green';
+		context.lineJoin = 'bevel';
+		context.stroke();
+
+		//Quadratic Curve //http://fromyou.tistory.com/563
+		context.beginPath();
+		context.moveTo(200, 450);
+		context.quadraticCurveTo(0,0, 400, 500); //베지어 곡선을 그리게됨
+		context.lineWidth = 5;
+		context.strokeStyle = 'purple';
+		context.stroke();
+	</script>
+</body>
+</html>

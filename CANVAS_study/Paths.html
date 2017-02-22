@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Curves</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="1000" height="1000"></canvas>
+	<script>
+		var canvas = document.getElementById('myCanvas');
+		var context = canvas.getContext('2d');
+		var rectWidth = 500;
+		var rectHeight = 500;
+		var rectX = 150;
+		var rectY = 30;
+		var cornerRadius = 50;
+
+		context.beginPath();
+		context.moveTo(rectX, rectY);
+		context.lineTo(rectX + rectWidth - cornerRadius, rectY);
+		context.arcTo(rectX + rectWidth, rectY, rectX + rectWidth, rectY + cornerRadius, cornerRadius);
+		context.lineTo(rectX + rectWidth, rectY + rectHeight);
+		context.strokeStyle = 'blue';
+		context.lineWidth = 20;
+		context.stroke();
+	</script>
+</body>
+</html>

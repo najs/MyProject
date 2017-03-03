@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>sprite_animation</title>
+</head>
+<body>
+
+<canvas id="myCanvas"></canvas>
+
+<script>
+	function sprite(options){
+		var that = {},
+			frameIndex = 0,
+			tickCount = 0,
+			ticksPerFrame = options.ticksPerFrame || 0,
+			numberOfFrames = options.numberOfFrames || 1;
+
+		that.context = options.context;
+		that.width = options.width;
+		that.height = options.height;
+		that.image = options.image;
+		that.loop = options.loop;
+
+		that.update = function () {
+
+			tickCount += 1;
+
+			if (tickCount > ticksPerFrame) {
+
+				tickCount = 0;
+
+				if (frameIndex < numberOfFrames - 1) {
+					//next Frame
+					frameIndex += 1;
+				} else {
+					frameIndex = 0;
+				}
+			}
+		};
+
+		that.render = function(){
+			//Clear canvas
+			that.context.clearRect(0, 0, that.width, that.height);
+			//Draw animation
+			that.context.drawImage(
+				that.image,
+				frameIndex * that.width / numberOfFrames,
+				0,
+				that.width / numberOfFrames,
+				that.height,
+				0,
+				0,
+				that.width / numberOfFrames,
+				that.height);
+		};
+		return that;
+	}
+
+	var gameLoop = function(){
+		window.requestAnimationFrame(gameLoop);
+
+		coin.update();
+		coin.render();
+	};
+
+	/*---------------*/
+
+	var canvas = document.getElementById("myCanvas");
+	canvas.width = 100;
+	canvas.height= 100;
+
+	var coinImage = new Image();
+	coinImage.src = "spr_coin.png";
+
+	var coin = sprite({
+		context: canvas.getContext('2d'),
+		width: 1000,
+		height: 100,
+		image: coinImage,
+		numberOfFrames:10,
+		ticksPerFrame: 5,
+		loop:true
+	});
+
+
+
+	coinImage.onload = function(){  //이미지 로드 후 실행
+		gameLoop()
+	};
+
+
+
+</script>
+</body>
+</html>

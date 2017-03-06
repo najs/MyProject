@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>transforms</title>
+	<style>
+		*{padding:0;margin:0}
+		#wrap{overflow:hidden;width:100%;height:800px;}
+		#move_wrap{width:100%;height:100%;transition:transform .8s}
+		.section{width:100%;height:800px}
+		.section0{background-color:#ededed;}
+		.section1{background-color:#0090ff;}
+		.section2{background-color:#ed6a43;}
+		.section3{background-color:#63a35c;}
+		.section4{background-color:#a71d5d;}
+		.section5{background-color:#000000;}
+	</style>
+</head>
+<body>
+<div id="wrap">
+	<div id="move_wrap">
+		<div class="section section0">
+			transform:matrix(너비, 수직기울기, 수평기울기, 높이, 수평이동, 수직이동);
+		</div>
+		<div class="section section1">
+			너비와 높이는 0부터 9까지의 수치를 사용. 음수는 사용 불가능
+		</div>
+		<div class="section section2"></div>
+		<div class="section section3"></div>
+		<div class="section section4"></div>
+		<div class="section section5"></div>
+	</div>
+</div>
+
+<script>
+		var wrap = document.getElementById('move_wrap');
+		var sectionLen = document.querySelectorAll('.section').length-1;
+
+		var i =0;
+		function handle(obj,delta,eleLen,eleHeight) {
+			if(delta < 0){
+				i -=1;
+			}else{
+				i +=1;
+			}
+			if(i>0){i=0}
+			if(i<-eleLen){i=-eleLen}
+			obj.style.transform = "matrix(1,0,0,1,0," + eleHeight*i +")";
+		}
+
+		function wheel(event){
+			var delta = 0;
+			if (!event) event = window.event;
+			if (event.wheelDelta) {
+				delta = event.wheelDelta/120;
+				if (window.opera) delta = -delta;
+			} else if (event.detail) delta = -event.detail/3;
+			if (delta) handle(wrap,delta,sectionLen,800);
+		}
+
+		if (wrap.addEventListener){
+			wrap.addEventListener('DOMMouseScroll', wheel, false);
+			wrap.onmousewheel = wrap.onmousewheel = wheel;
+		}
+	</script>
+</body>
+</html>

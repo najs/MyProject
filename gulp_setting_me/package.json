@@ -1,8 +1,8 @@
 {
-  "name": "name",
+  "name": "gulp-set",
   "version": "1.0.0",
   "description": "description",
-  "main": "",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

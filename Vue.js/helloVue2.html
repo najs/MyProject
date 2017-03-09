@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Vue</title>
+	<style>
+
+	</style>
+</head>
+<body>
+<div id="app">
+	<p>Hello {{ name }}</p>
+	<input type="text" v-model="name">
+	<p><input type="checkbox" v-model="isFire" id="btn_fw"/><label for="btn_fw">불이야 물이야</label></p>
+	<img v-bind:src="isFire ? fire : water"/>
+	<div>
+		<h1>오늘의 할 일</h1>
+		<ul>
+			<li v-for="(todo, index) in todos">
+				{{ index }} {{ todo.text }}
+			</li>
+		</ul>
+		
+		<div>카운터 : {{ number }}</div>
+		<button @click="increment">증가</button>  <!--v-on:을 @으로 대체 가능-->
+		<button @click="decrement">감소</button>
+	</div>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+	var app = new Vue({
+		el : "#app",
+		data:{
+			number: 0,
+			name : 'Vue',
+			todos : [
+				{text : 'Vue.js 튜토리얼 따라하기'},
+				{text : '이미지 최적화'},
+				{text : 'css 코드 정리'},
+				{text : 'gulp는 뭐냐'}
+			],
+			fire : 'poket5.png',
+			water : 'poket4.png',
+			isFire : true
+		},
+		methods : {
+			increment : function(){
+				this.number++;
+				//인스턴스 내부의 데이터모델에 접근, this를 사용
+			},
+			decrement : function(){
+				this.number--;
+			}
+		}
+	});
+</script>
+</body>
+</html>

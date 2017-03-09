@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Vue</title>
+	<style>
+		[v-cloak]{display:none}
+	</style>
+</head>
+<body>
+<div id="app" v-cloak> <!--스크립트가 실행되기 전에 보이는 코드를 보이지 않게 하기위한 디렉티브/ 즉, Vue인스턴스가 제대로 준비되기 전까지 코드를 숨기고 싶을 때 사용. CSS [v-cloak] {display: none;} 추가 -->
+	<div>
+		Hello, <p v-if="value > 5">value가 5보다 크군요</p>
+		<p v-else-if="value === 5">값이 5네요</p>
+		<p v-else="value < 5">value가 5보다 작아요</p>
+		<p v-once>초기값 : {{ value }}</p> <!-- 딱 한번만 렌더링 -->
+		<p>현재값 : {{ value }}</p>
+		<p v-pre>{{ 이건 그대로 렌더링해줘요 }}</p> <!-- 그대로 렌더링할부분 -->
+
+		<img v-bind:src="isFire ? fire : water"/> <!--HTML엘리먼트의 속성을 설정할때-->
+	</div>
+	<strong>{{ Date() }}</strong>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+	var app = new Vue({
+		el : "#app",
+		data:{
+			value : 5,
+			fire : 'poket5.jpg',
+			water : 'poket4.png',
+			isFire : true
+		}
+	})
+
+</script>
+</body>
+</html>

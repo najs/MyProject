@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>animation</title>
+	<style>
+		@import url(https://fonts.googleapis.com/css?family=Cabin);
+		.wrap_box {
+			margin:2px auto;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+			width:300px;
+			height:300px;
+			background-color: #222a30;
+		}
+		.sample .txt{
+			margin-top: 50px;
+			font-family: "Cabin", sans-serif;
+			letter-spacing: 12px;
+			text-indent: 12px;
+			color: #ffffff;
+			-webkit-animation: colorText 5s ease-out infinite/*, nudgeText 5s ease-out infinite*/;
+			animation: colorText 5s ease-out infinite/*, nudgeText 5s ease-out infinite*/;
+		}
+		.sample .mouse {
+			background: #4e5559 linear-gradient(transparent 0%, transparent 50%, #ffffff 50%, #ffffff 100%);
+			position: relative;
+			width: 52px;
+			height: 88px;
+			border-radius: 100px;
+			background-size: 225%;
+			-webkit-animation: colorSlide 5s linear infinite, nudgeMouse 5s ease-out infinite;
+			animation: colorSlide 5s linear infinite, nudgeMouse 5s ease-out infinite;
+		}
+		.sample .mouse:before,
+		.sample .mouse:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+		}
+		.sample .mouse:before {
+			width: 46px;
+			height: 82px;
+			background-color: #222a30;
+			border-radius: 100px;
+		}
+		.sample .mouse:after {
+			background-color: #ffffff;
+			width: 10px;
+			height: 10px;
+			border-radius: 100%;
+			-webkit-animation: trackBallSlide 5s linear infinite;
+			animation: trackBallSlide 5s linear infinite;
+		}
+		@-webkit-keyframes colorSlide {
+			0% {background-position:0 100%}
+			20% {background-position:0 0}
+			21% {background-color: #4e5559}
+			29.99% {background-color: #ffffff; background-position:0 0}
+			30% {background-color: #4e5559; background-position: 0% 100%}
+			50% {background-position: 0% 0%}
+			51% {background-color: #4e5559}
+			59.99% {background-color: #ffffff; background-position: 0% 0%}
+			60% {background-color: #4e5559; background-position: 0% 100%}
+			80% {background-position: 0% 0%}
+			81% {background-color: #4e5559}
+			89.99%, 100% {background-color: #ffffff}
+		}
+
+		@keyframes colorSlide {
+			0% {background-position: 0 100%}
+			20% {background-position: 0 0}
+			21% {background-color: #4e5559}
+			29.99% {background-color: #ffffff; background-position: 0 0}
+			30% {background-color: #4e5559; background-position: 0 100%}
+			50% {background-position: 0% 0%}
+			51% {background-color: #4e5559}
+			59.99% {background-color: #ffffff; background-position: 0% 0%}
+			60% {background-color: #4e5559; background-position: 0% 100%}
+			80% {background-position: 0% 0%}
+			81% {background-color: #4e5559}
+			89.99%, 100% {background-color: #ffffff}
+		}
+		@-webkit-keyframes trackBallSlide {
+			0% {
+				opacity: 1;
+				-webkit-transform: scale(1) translateY(-20px);
+				transform: scale(1) translateY(-20px);
+			}
+			6% {
+				opacity: 1;
+				-webkit-transform: scale(0.9) translateY(5px);
+				transform: scale(0.9) translateY(5px);
+			}
+			14% {
+				opacity: 0;
+				-webkit-transform: scale(0.4) translateY(40px);
+				transform: scale(0.4) translateY(40px);
+			}
+			15%, 19% {
+				opacity: 0;
+				-webkit-transform: scale(0.4) translateY(-20px);
+				transform: scale(0.4) translateY(-20px);
+			}
+			28%, 29.99% {
+				opacity: 1;
+				-webkit-transform: scale(1) translateY(-20px);
+				transform: scale(1) translateY(-20px);
+			}
+			30% {
+				opacity: 1;
+				-webkit-transform: scale(1) translateY(-20px);
+				transform: scale(1) translateY(-20px);
+			}
+			36% {
+				opacity: 1;
+				-webkit-transform: scale(0.9) translateY(5px);
+				transform: scale(0.9) translateY(5px);
+			}
+			44% {
+				opacity: 0;
+				-webkit-transform: scale(0.4) translateY(40px);
+				transform: scale(0.4) translateY(40px);
+			}
+			45%, 49% {
+				opacity: 0;
+				-webkit-transform: scale(0.4) translateY(-20px);
+				transform: scale(0.4) translateY(-20px);
+			}
+			58%, 59.99% {
+				opacity: 1;
+				-webkit-transform: scale(1) translateY(-20px);
+				transform: scale(1) translateY(-20px);
+			}
+			60% {
+				opacity: 1;
+				-webkit-transform: scale(1) translateY(-20px);
+				transform: scale(1) translateY(-20px);
+			}
+			66% {
+				opacity: 1;
+				-webkit-transform: scale(0.9) translateY(5px);
+				transform: scale(0.9) translateY(5px);
+			}
+			74% {
+				opacity: 0;
+				-webkit-transform: scale(0.4) translateY(40px);
+				transform: scale(0.4) translateY(40px);
+			}
+			75%, 79% {
+				opacity: 0;
+				-webkit-transform: scale(0.4) translateY(-20px);
+				transform: scale(0.4) translateY(-20px);
+			}
+			88%, 100% {
+				opacity: 1;
+				-webkit-transform: scale(1) translateY(-20px);
+				transform: scale(1) translateY(-20px);
+			}
+		}
+		@keyframes trackBallSlide {
+			0% {
+				opacity: 1;
+				-webkit-transform: scale(1) translateY(-20px);
+				transform: scale(1) translateY(-20px);
+			}
+			6% {
+				opacity: 1;
+				-webkit-transform: scale(0.9) translateY(5px);
+				transform: scale(0.9) translateY(5px);
+			}
+			14% {
+				opacity: 0;
+				-webkit-transform: scale(0.4) translateY(40px);
+				transform: scale(0.4) translateY(40px);
+			}
+			15%, 19% {
+				opacity: 0;
+				-webkit-transform: scale(0.4) translateY(-20px);
+				transform: scale(0.4) translateY(-20px);
+			}
+			28%, 29.99% {
+				opacity: 1;
+				-webkit-transform: scale(1) translateY(-20px);
+				transform: scale(1) translateY(-20px);
+			}
+			30% {
+				opacity: 1;
+				-webkit-transform: scale(1) translateY(-20px);
+				transform: scale(1) translateY(-20px);
+			}
+			36% {
+				opacity: 1;
+				-webkit-transform: scale(0.9) translateY(5px);
+				transform: scale(0.9) translateY(5px);
+			}
+			44% {
+				opacity: 0;
+				-webkit-transform: scale(0.4) translateY(40px);
+				transform: scale(0.4) translateY(40px);
+			}
+			45%, 49% {
+				opacity: 0;
+				-webkit-transform: scale(0.4) translateY(-20px);
+				transform: scale(0.4) translateY(-20px);
+			}
+			58%, 59.99% {
+				opacity: 1;
+				-webkit-transform: scale(1) translateY(-20px);
+				transform: scale(1) translateY(-20px);
+			}
+			60% {
+				opacity: 1;
+				-webkit-transform: scale(1) translateY(-20px);
+				transform: scale(1) translateY(-20px);
+			}
+			66% {
+				opacity: 1;
+				-webkit-transform: scale(0.9) translateY(5px);
+				transform: scale(0.9) translateY(5px);
+			}
+			74% {
+				opacity: 0;
+				-webkit-transform: scale(0.4) translateY(40px);
+				transform: scale(0.4) translateY(40px);
+			}
+			75%, 79% {
+				opacity: 0;
+				-webkit-transform: scale(0.4) translateY(-20px);
+				transform: scale(0.4) translateY(-20px);
+			}
+			88%, 100% {
+				opacity: 1;
+				-webkit-transform: scale(1) translateY(-20px);
+				transform: scale(1) translateY(-20px);
+			}
+		}
+		@-webkit-keyframes nudgeMouse {
+			0% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+			20% {
+				-webkit-transform: translateY(8px);
+				transform: translateY(8px);
+			}
+			30% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+			50% {
+				-webkit-transform: translateY(8px);
+				transform: translateY(8px);
+			}
+			60% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+			80% {
+				-webkit-transform: translateY(8px);
+				transform: translateY(8px);
+			}
+			90% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+		}
+		@keyframes nudgeMouse {
+			0% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+			20% {
+				-webkit-transform: translateY(8px);
+				transform: translateY(8px);
+			}
+			30% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+			50% {
+				-webkit-transform: translateY(8px);
+				transform: translateY(8px);
+			}
+			60% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+			80% {
+				-webkit-transform: translateY(8px);
+				transform: translateY(8px);
+			}
+			90% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+		}
+		@-webkit-keyframes nudgeText {
+			0% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+			20% {
+				-webkit-transform: translateY(2px);
+				transform: translateY(2px);
+			}
+			30% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+			50% {
+				-webkit-transform: translateY(2px);
+				transform: translateY(2px);
+			}
+			60% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+			80% {
+				-webkit-transform: translateY(2px);
+				transform: translateY(2px);
+			}
+			90% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+		}
+		@keyframes nudgeText {
+			0% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+			20% {
+				-webkit-transform: translateY(2px);
+				transform: translateY(2px);
+			}
+			30% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+			50% {
+				-webkit-transform: translateY(2px);
+				transform: translateY(2px);
+			}
+			60% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+			80% {
+				-webkit-transform: translateY(2px);
+				transform: translateY(2px);
+			}
+			90% {
+				-webkit-transform: translateY(0);
+				transform: translateY(0);
+			}
+		}
+		@-webkit-keyframes colorText {
+			21% {color:#4e5559}
+			30% {color:#ffffff}
+			51% {color:#4e5559}
+			60% {color:#ffffff}
+			81% {color:#4e5559}
+			90% {color:#ffffff}
+		}
+		@keyframes colorText {
+			21% {color:#4e5559}
+			30% {color:#ffffff}
+			51% {color:#4e5559}
+			60% {color:#ffffff}
+			81% {color:#4e5559}
+			90% {color:#ffffff}
+		}
+
+	</style>
+</head>
+<body>
+<div class="sample wrap_box">
+	<div class="mouse"></div>
+	<p class="txt">Scroll</p>
+</div>
+
+<style>
+	.nemo_warp{background-color:#310b3c}
+	.nemo{
+		position:relative;
+		width:80px;
+		height:50px;
+		background:#000000 linear-gradient(transparent 0%, transparent 50%, #ffffff 50%, #ffffff 100%);
+		background-position:0 0;
+		-webkit-background-size:100%;
+		background-size:250%;
+		-webkit-animation: bgcSlide 1.5s linear infinite;
+		animation: bgcSlide 1.5s linear infinite;
+	}
+	.nemo:before{
+		content:'';
+		position:absolute;
+		top:0;
+		left:0;
+		bottom:0;
+		right:0;
+		width:74px;
+		height:44px;
+		margin:auto;
+		background-color:#310b3c;
+	}
+	.nemo_warp .txt{
+		-webkit-animation: txtColorChange 5s ease-out infinite;
+		animation: txtColorChange 5s ease-out infinite
+	}
+	@keyframes bgcSlide {
+		0% {background-color:#c602ed;background-position: 0 100%}
+		100% {background-color:#eda8eb;background-position: 0 0}
+	}
+	@keyframes txtColorChange{
+		0% {color:#b4127b}
+		25% {color: #ffffff}
+		50% {color:#b4127b}
+		75% {color: #ffffff}
+		100% {color:#b4127b}
+	}
+</style>
+
+<div class="wrap_box nemo_warp">
+	<div class="nemo"></div>
+	<p class="txt">채우기</p>
+</div>
+
+<style>
+	.line{
+		overflow:hidden;
+		position:relative;
+		width:200px;
+		height:200px;
+		background-color:#055731;
+	}
+	.line:before,
+	.line:after{
+		content:'';
+		position:absolute;
+		left:0;
+		top:0;
+	}
+
+	.line:before{
+		width:0;
+		height:20px;
+		background-color:#ffbe3c;
+		animation:firstHorizon 5s ease-out 1;
+		animation-fill-mode: forwards;
+	}
+	.line:after{
+		top:10px;
+		width:20px;
+		height:0;
+		background-color:#eb81ff;
+		animation:firstVertical 5s ease-out 1;
+		animation-fill-mode: forwards;
+	}
+	.line .con{
+		z-index:5;
+		position:absolute;
+		left:0;
+		top:0;
+		right:0;
+		bottom:0;
+		width:180px;
+		height:180px;
+		background-color:#ffffff;
+		margin:auto;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+	}
+
+
+	@keyframes firstHorizon{
+		0%{width:10px}
+		50%{width:200px;height:10px}
+		99%{height:198px}
+		100%{width:200px;height:200px}
+	}
+	@keyframes firstVertical{
+		0%{height:0}
+		50%{height:200px;width:10px}
+		100%{height:200px;width:190px}
+	}
+</style>
+
+
+<div class="wrap_box line_warp">
+	<div class="line">
+		<div class="con">내용이들어갑니다~</div>
+	</div>
+	<p class="txt">라인그리기</p>
+</div>
+
+
+</body>
+</html>

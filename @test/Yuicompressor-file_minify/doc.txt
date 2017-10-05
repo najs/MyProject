@@ -1,0 +1,5 @@
+webstorm
+
+Tools > file watch
+- Argument : $FileNameWithoutAllExtensions$.max.css -o $FileNameWithoutAllExtensions$.css
+- Output path ~ : $FileNameWithoutAllExtensions$.css

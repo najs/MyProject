@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>transition2</title>
+	<style>
+		.btn-01{
+			display: inline-block;
+			margin: 0;
+			width: 80px;
+			height: 80px;
+			line-height:80px;
+			text-decoration: none;
+			font-size: 12px;
+			color: #999;
+			background-color: #f4f4f4;
+			border-width: 1px;
+			border-style: solid;
+			border-radius: 10%;
+			border-color:#999;
+			transition: width .2s ease,
+									height .2s ease,
+									line-height .2s ease,
+									color .2s ease,
+									font-size .2s ease,
+									border .2s ease,
+									background-color .2s ease,
+									border-radius .2s ease .8s;
+		}
+		.btn-01:hover{
+			width: 120px;
+			height: 120px;
+			line-height:120px;
+			color: #ffcccc;
+			font-size: 20px;
+			border-width: 5px;
+			border-color:#ff5e5d;
+			background-color: #fa8382;
+			border-radius: 50%;
+		}
+		
+		.ex-circle{
+			display:inline-block;
+			width: 120px;
+			height: 120px;
+			margin: 0 30px 20px 30px;
+			background-color: #ff655e;
+			color:#fff;
+			font-size:10px;
+			line-height: 120px;
+			text-align:center;
+		}
+		.ex-circle.rotate{transform:rotate(30deg);}
+		.ex-circle.skew{transform:skew(-15deg,0deg);}
+		
+	</style>
+
+</head>
+<body>
+
+<button class="btn-01">Button</button>
+<div class="ex-circle">No transform</div>
+<div class="ex-circle rotate">rotate(45deg)</div>
+<div class="ex-circle skew">skew(20deg,10deg)</div>
+
+
+</body>
+</html>
